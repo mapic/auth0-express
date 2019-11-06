@@ -47,6 +47,8 @@ router.get('/logout', (req, res) => {
   });
   logoutURL.search = searchString;
 
+  console.log('///// logout logoutURL', logoutURL);
+
   res.redirect(logoutURL);
 });
 
