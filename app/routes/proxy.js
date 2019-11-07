@@ -35,8 +35,9 @@ router.all('/*', secured(), function (req, res, next) {
     maxAge: (1 * 60 * 60 * 1000)
   }
 
-  res.cookie('user_nickname', req.user.nickname, cookieOptions);
+  res.cookie('user_name', req.user.nickname, cookieOptions);
   res.cookie('user_email', req.user.emails[0].value, cookieOptions);
+  res.cookie('user_domain', req.user.emails[0].value.split('@')[1]);
 
   proxy.web(req, res);
 });
