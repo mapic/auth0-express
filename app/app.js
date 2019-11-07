@@ -55,8 +55,8 @@ app.use(cookieParser());
 var sess = {
   secret: require('crypto').randomBytes(64).toString('hex'),
   cookie: {
-    maxAge: null,
-    // maxAge: (1 * 60 * 60 * 1000) // 1 hour
+    // maxAge: null,
+    maxAge: (1 * 60 * 60 * 1000) // 1 hour
   },
   resave: false,
   saveUninitialized: true,
@@ -67,11 +67,9 @@ if (app.get('env') === 'production') {
 }
 
 app.use(session(sess));
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(flash());
 
 // Handle auth failure error messages
@@ -85,11 +83,15 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+// set routes
 app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', proxyRouter);
+
+
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -98,7 +100,6 @@ app.use(function (req, res, next) {
   next(err);
 });
 
-// Error handlers
 
 // Development error handler
 // Will print stacktrace
