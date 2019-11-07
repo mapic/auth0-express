@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('nodejs-regular-webapp2:server');
 var http = require('http');
+var httpProxy = require('http-proxy');
 
 /**
  * Get port from environment and store in Express.
@@ -28,6 +29,28 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+
+
+/* Proxy websockets */
+var proxy = httpProxy.createProxyServer({
+  target: {
+    host: process.env.SHINY_HOST, // shiny 
+    port: process.env.SHINY_PORT  // 3838
+  },
+  ws: true
+});
+
+proxy.on('error', function (e) {
+  console.log('http-proxy error:', e);
+});
+
+server.on('upgrade', function (req, socket, head) {
+  proxy.ws(req, socket, head);
+});
+
+
+
 
 /**
  * Normalize a port into a number, string, or false.

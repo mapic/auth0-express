@@ -11,13 +11,33 @@ var proxy = httpProxy.createProxyServer({
   target: {
     host: process.env.SHINY_HOST,
     port: process.env.SHINY_PORT
-  }
+  },
+  // ws: true
 });
+
+// // Listen for the `error` event on `proxy`.
+// proxy.on('error', function (err, req, res) {
+//   console.log('proxy error:', err);
+// });
+
+// proxy.on('open', function (proxySocket) {
+//   console.log('proxy open!');
+// });
 
 
 // router.all(/.*/, function (req, res, next) {
 router.all('/*', secured(), function (req, res, next) {
   console.log('proxying..................');
+  console.log('req.user:', req.user);
+
+
+  var cookieOptions = {
+    maxAge: (1 * 60 * 60 * 1000)
+  }
+
+  res.cookie('user_nickname', req.user.nickname, cookieOptions);
+  res.cookie('user_email', req.user.emails[0].value, cookieOptions);
+
   proxy.web(req, res);
 });
 
