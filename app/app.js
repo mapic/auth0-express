@@ -74,6 +74,7 @@ app.use(flash());
 
 // Handle auth failure error messages
 app.use(function (req, res, next) {
+  console.log('auth fail error');
   if (req && req.query && req.query.error) {
     req.flash('error', req.query.error);
   }
@@ -105,6 +106,8 @@ app.use(function (req, res, next) {
 // Will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
+    console.log('catchall dev', err);
+
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -116,6 +119,7 @@ if (app.get('env') === 'development') {
 // Production error handler
 // No stacktraces leaked to user
 app.use(function (err, req, res, next) {
+    console.log('catchall prod', err);
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
