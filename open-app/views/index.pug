@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .w3-container
+    if locals.user
+      h4 Du er logget inn!
+    else
+      include loggedout

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .w3-card-4
+    h1 Velkommen #{user.nickname}
+    img(src=user.picture)
+    pre
+      code #{userProfile}

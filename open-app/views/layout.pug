@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/w3.css')
+    link(rel='shortcut icon', href='/stylesheets/favicon.png')
+
+  body
+    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
+      .w3-bar-item.w3-text-grey NGI Shiny
+      a(href="/home").w3-bar-item.w3-button Hjem
+      if locals.user
+        a(href="/user" ).w3-bar-item.w3-button Profil
+        a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Logg ut
+      else
+        a(id="qsLoginBtn" href="/login").w3-bar-item.w3-button Logg inn
+    block content
