@@ -29,22 +29,20 @@ router.get('/callback', function (req, res, next) {
     console.log('callback, err, user, info:', err, user, info);
     if (err) { return next(err); }
 
-
     console.log('req.query: ', req.query);
     console.log('req.params: ', req.params);
 
-    // not whitelisted
+    // deny: not whitelisted
     if (req.query && req.query.error_description == 423) {
-      res.status(403);
+      res.status(423);
       return next(new Error('Du er ikke autorisert til å logge inn. Kontakt NGI for mer informasjon.'));
-
-      // })
-      // return res.render('error', {
-      //   message: 'You are not authorized to create an account. Please contact NGI.',
-      //   error: info
-      // });      
     }
 
+    // deny: need to verify email
+    if (req.query && req.query.error_description == 417) {
+      res.status(417);
+      return next(new Error('Vennligst sjekk innboksen og verifisér eposten din før du fortsetter.'));
+    }
 
     if (!user) { 
       console.log('redirecting to ///login');
