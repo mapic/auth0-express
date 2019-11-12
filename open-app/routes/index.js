@@ -12,5 +12,9 @@ router.get('/', function (req, res, next) {
   res.redirect('/forside');
 });
 
+// ensure /logs/ sftp folder is not accessible
+router.get('/logs', function (req, res, next) {
+  res.redirect('/');
+});
 
 module.exports = router;
