@@ -21,6 +21,10 @@ router.get('/login', passport.authenticate('auth0', {
   res.redirect('/');
 });
 
+// ensure /logs/ sftp folder is not accessible
+router.get('/logs', function (req, res, next) {
+  res.redirect('/');
+});
 
 
 // Perform the final stage of authentication and redirect to previously requested URL or '/user'
