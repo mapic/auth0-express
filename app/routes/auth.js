@@ -9,8 +9,8 @@ var router = express.Router();
 var util = require('util');
 var url = require('url');
 
-const VERIFY_EMAIL_MSG = 'Du har nå registrert en ny bruker som må verifiseres via en link tilsendt til din epostadresse. Ved spørsmål ta kontakt via <a href="mailto:miljoskytjenester@ngi.no">miljoskytjenester@ngi.no</a>.'
-const UNAUTHORIZED_MSG = 'Du er ikke autorisert til å logge inn. Ved spørsmål ta kontakt via <a href="mailto:miljoskytjenester@ngi.no">miljoskytjenester@ngi.no</a>.'
+const VERIFY_EMAIL_MSG = 'Du har nå registrert en ny bruker som må verifiseres via en link tilsendt til din epostadresse.'
+const UNAUTHORIZED_MSG = 'Du er ikke autorisert til å logge inn.'
 
 dotenv.config();
 

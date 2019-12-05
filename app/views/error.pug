@@ -1,22 +1,12 @@
 extends layout
 
 block content
-  h2= message
+    div.error-message= message
+    div.contact-us Ved spørsmål ta kontakt via 
+        | <a href="mailto:miljoskytjenester@ngi.no" target="_blank">miljoskytjenester@ngi.no</a>.
+    div.privacy Personvernerklæring: For å ivareta datasikkerheten lagrer NGI epostadresser og telefonnumrene for alle 
+        | brukere av skytjenesten, samt brukerstatistikk, for å sikre tjenesten mot hackerangrep og utøve tilgangsbegrensning.
+        | Se for øvrig skytjenestens 
+        | <a href="https://s3.eu-central-1.amazonaws.com/public-ngi-files/Personvernerkl%C3%A6ring_for_skytjenester_NGI.pdf" target="_blank">
+        | personvernerklæring</a>.
 
-
-// doctype html
-// html
-//   head
-//     title= title
-//     link(rel='stylesheet', href='/stylesheets/style.css')
-//     link(rel='stylesheet', href='/stylesheets/w3.css')
-//     link(rel='shortcut icon', href='/stylesheets/favicon.png')
-
-//   body
-//     nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
-//       .w3-bar-item.w3-text-grey NGI Shiny
-//       a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Forside
-
-//     h2= message
-//     // h2= error.status
-//     // pre #{error.stack}

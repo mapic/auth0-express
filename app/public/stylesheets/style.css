@@ -62,3 +62,23 @@ a.fas.fa-home:hover {
     color: gainsboro;
 
 }
+
+div.error-message {
+    margin: 50px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+div.contact-us {
+    text-align: center;
+}
+
+div.privacy {
+    text-align: center;
+    margin: 100px;
+    font-style: italic;
+    bottom: 0px;
+    position: absolute;
+    margin-bottom: 30px;
+    font-size: 0.8em;
+}

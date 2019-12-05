@@ -17,7 +17,5 @@ html
       a(href="/", title="Gå til forsiden").fas.fa-home
       if locals.user
         a(id="qsLogoutBtn" href="/logout" title="Logg ut").fas.fa-sign-out-alt
-      else
-        a(id="qsLogoutBtn" href="/login" title="Logg inn").fas.fa-sign-in-alt
      
     block content
