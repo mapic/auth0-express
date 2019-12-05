@@ -28,7 +28,7 @@ pre {
     line-height: 35px;
 }
 
-.ngi-nav > img {
+.ngi-nav > a img {
     width: 100px;
     float: left;
     margin-left: 10px;
