@@ -16,3 +16,49 @@ pre {
 .w3-card-4 {
     padding: 15px;
 }
+
+.ngi-nav {
+    background-color:#464646;
+    color:white;
+    height:50px;
+}
+
+.ngi-nav > .w3-bar-item {
+    height: 50px;
+    line-height: 35px;
+}
+
+.ngi-nav > img {
+    width: 100px;
+    float: left;
+    margin-left: 10px;
+}
+
+.ngi-nav > a img.ngi-logo {
+    width: 50px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 11px;
+}
+
+a.fas.fa-sign-out-alt {
+    float: right;
+    margin-top: 18px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+a.fas.fa-sign-out-alt:hover {
+    color: gainsboro;
+
+}
+
+a.fas.fa-home {
+    float: right;
+    margin-top: 17px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+a.fas.fa-home:hover {
+    color: gainsboro;
+
+}
