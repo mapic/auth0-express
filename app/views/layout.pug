@@ -2,17 +2,21 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://kit.fontawesome.com/475f9ede54.js')
     link(rel='stylesheet', href='/stylesheets/w3.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='shortcut icon', href='/stylesheets/favicon.png')
 
+
   body
-    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
-      .w3-bar-item.w3-text-grey NGI Shiny
-      a(href="/forside").w3-bar-item.w3-button Forside
+    nav.w3-bar.w3-border.ngi-nav( role="navigation" )
+      img(src='/stylesheets/Slide6.PNG')
+      a(href="https://ngi.no", target="_blank", title="Gå til NGI.no")
+        img(src='/stylesheets/ngi-logo.jpg').ngi-logo
+      a(href="/", title="Gå til forsiden").fas.fa-home
       if locals.user
-        a(href="/user" ).w3-bar-item.w3-button Profil
-        a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Logg ut
+        a(id="qsLogoutBtn" href="/logout" title="Logg ut").fas.fa-sign-out-alt
       else
-        a(id="qsLoginBtn" href="/login").w3-bar-item.w3-button Logg inn
+        a(id="qsLogoutBtn" href="/login" title="Logg inn").fas.fa-sign-in-alt
+     
     block content
