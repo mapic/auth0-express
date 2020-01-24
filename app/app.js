@@ -74,12 +74,14 @@ app.use(flash());
 
 // Handle auth failure error messages
 app.use(function (req, res, next) {
-  console.log('auth fail error');
+  console.log('Auth fail error:');
   if (req && req.query && req.query.error) {
     req.flash('error', req.query.error);
+    console.log(new Date().toUTCString(), 'Auth fail error:', req.query.error);
   }
   if (req && req.query && req.query.error_description) {
     req.flash('error_description', req.query.error_description);
+    console.log(new Date().toUTCString(), 'Auth fail error:', req.query.error_description);
   }
   next();
 });

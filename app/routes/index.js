@@ -10,7 +10,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     console.log('rendering index');
     res.redirect('/forside');
-  res.render('index', { title: 'NGI Shiny' });
+    // res.render('index', { title: 'NGI Shiny' });
 });
 
 
